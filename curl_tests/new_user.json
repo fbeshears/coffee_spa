@@ -1,0 +1,9 @@
+{
+    "name": "George O. Jungle",
+    "is_online": false,
+    "css_map": {
+      "top": 100,
+      "left": 120,
+      "background-color": "rgb(136, 255, 136)"
+    }
+}

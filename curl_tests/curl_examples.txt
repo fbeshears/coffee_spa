@@ -1,0 +1,35 @@
+curl_examples.txt
+
+## List
+curl http://localhost:3000/user/list 
+
+## Read
+curl http://localhost:3000/user/read/532e4e9e045f92740d80a264
+
+
+
+## Create
+curl -X POST ^
+  --header "content-type: application/json" ^
+  --data @fred_jungle.json ^
+  http://localhost:3000/user/create
+
+or
+
+curl --header "content-type: application/json" ^
+      --data @fred_jungle.json ^
+      http://localhost:3000/user/create
+
+
+## Delete
+curl http://localhost:3000/user/delete/532e505b045f92740d80a265
+
+
+
+
+## Update
+curl  --header "content-type: application/json" ^
+  --data @fred_jungle.json ^
+  http://localhost:3000/user/update/532e4e9e045f92740d80a264
+
+

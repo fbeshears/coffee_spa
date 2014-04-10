@@ -1,0 +1,95 @@
+copy and paste code into browser JavaScript console
+(see page 187-188 in SPA book)
+
+var $t = $('<div/>');
+
+$.gevent.subscribe( $t, 'spa-login', function () { console.log ( 'hello',arguments); });
+
+
+$.gevent.subscribe($t, 'spa-listchange', function(){console.log('*listchange', arguments);});
+
+var currentUser = spa.model.people.get_user();
+
+currentUser.get_is_anon();
+
+spa.model.chat.join();
+
+spa.model.people.login('Fred');
+
+var peopleDb = spa.model.people.get_db();
+
+peopleDb().each(function(person, idx){console.log(person.name);});
+
+spa.model.chat.join();
+
+peopleDb = spa.model.people.get_db();
+
+peopleDb().each(function(person, idx){console.log(person.name);});
+
+
+currentUser = spa.model.people.get_user();
+
+
+-----------------------------------------------------
+p. 196
+
+var $t = $('<div/>');
+
+$.gevent.subscribe( $t, 'spa-login', function (event, user) { 
+  console.log ( 'hello',user.name); 
+});
+
+$.gevent.subscribe( $t, 'spa-updatechat', function (event, chat_map) { 
+  console.log ( 'chatee message',chat_map); 
+});
+
+$.gevent.subscribe( $t, 'spa-setchatee', function (event, chat_map) { 
+  console.log ( 'chatee change',chat_map); 
+});
+
+$.gevent.subscribe( $t, 'spa-listchange', function (event, change_list) { 
+  console.log ( 'list change',change_list); 
+});
+
+spa.model.people.login('Fanny');
+
+spa.model.chat.send_msg('hi pebbles!');
+
+spa.model.chat.send_msg('what is up tricks?');
+
+spa.model.chat.set_chatee('id_03');
+
+spa.model.chat.send_msg('hi pebbles!');
+
+---------------------------------------------------------------
+p. 199
+
+var $t = $('<div/>');
+
+$.gevent.subscribe( $t, 'spa-login', 
+  function (event, user) { 
+  console.log ( 'hello',user.name); 
+});
+
+$.gevent.subscribe( $t, 'spa-listchange', 
+  function (event, changed_list) { 
+  console.log ( '*Listchange',changed_list); 
+});
+
+spa.model.people.login( 'Jessy' );
+
+
+var person = spa.model.people.get_by_cid('id_03');
+
+JSON.stringify( person.css_map );
+
+spa.model.chat.update_avatar({
+  person_id: 'id_03', 
+  css_map: {}
+});
+
+person = spa.model.people.get_by_cid('id_03');
+
+JSON.stringify( person.css_map );
+
+

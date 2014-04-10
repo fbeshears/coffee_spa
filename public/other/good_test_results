@@ -1,0 +1,51 @@
+var $t = $('<div/>');
+undefined
+$.gevent.subscribe( $t, 'spa-login', function (event, user) { 
+  console.log ( 'hello',user.name); 
+});
+undefined
+$.gevent.subscribe( $t, 'spa-updatechat', function (event, chat_map) { 
+  console.log ( 'chatee message',chat_map); 
+});
+undefined
+$.gevent.subscribe( $t, 'spa-setchatee', function (event, chat_map) { 
+  console.log ( 'chatee change',chat_map); 
+});
+undefined
+$.gevent.subscribe( $t, 'spa-listchange', function (event, change_list) { 
+  console.log ( 'list change',change_list); 
+});
+undefined
+
+spa.model.people.login('Fanny');
+undefined
+hello Fanny VM152:3
+list change 
+[Array[5]]
+ VM155:3
+chatee change 
+Object {old_chatee: null, new_chatee: Object}
+ VM154:3
+chatee message Object {dest_id: "id_5", dest_name: "Fanny", sender_id: "id_04", msg_text: "Hi there Fanny!  Wilma here."} VM153:3
+
+spa.model.chat.send_msg('hi pebbles!');
+chatee message Object {dest_id: "id_04", dest_name: "Wilma", sender_id: 
+"id_5", msg_text: "hi pebbles!"} VM153:3
+true
+chatee message Object {dest_id: "id_5", dest_name: "Fanny", sender_id: "id_04", msg_text: "Thanks for the note, Fanny"} VM153:3
+
+spa.model.chat.send_msg('what is up tricks?');
+chatee message Object {dest_id: "id_04", dest_name: "Wilma", sender_id: "id_5", msg_text: "what is up tricks?"} VM153:3
+true
+chatee message Object {dest_id: "id_5", dest_name: "Fanny", sender_id: "id_04", msg_text: "Thanks for the note, Fanny"} VM153:3
+
+spa.model.chat.set_chatee('id_03');
+chatee change 
+Object {old_chatee: Object, new_chatee: Object}
+ VM154:3
+true
+
+spa.model.chat.send_msg('hi pebbles!');
+chatee message Object {dest_id: "id_03", dest_name: "Pebbles", sender_id: "id_5", msg_text: "hi pebbles!"} VM153:3
+true
+chatee message Object {dest_id: "id_5", dest_name: "Fanny", sender_id: "id_03", msg_text: "Thanks for the note, Fanny"} 

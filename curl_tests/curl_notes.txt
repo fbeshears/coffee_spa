@@ -1,0 +1,17 @@
+curl_notes.txt
+
+to test routs
+
+# using curl to test post requests
+#
+# C:\Users\Fred\ProgLang\CoffeeScript\coffee_spa\webapp\public
+# >curl http://localhost:3000/user/create -d {}
+# {
+#   "title": "user created"
+# }
+
+# C:\Users\Fred\ProgLang\CoffeeScript\coffee_spa\webapp\public
+# >curl http://localhost:3000/user/update/12 -d {}
+# {
+#   "title": "user with id 12 updated"
+# }
